@@ -8,10 +8,12 @@ ROLE:Medical Director
 TEL;TYPE=CELL,VOICE,pref:+1-601-401-1546
 EMAIL;TYPE=INTERNET,WORK,pref:Chloe@BloomHomesAssistedLiving.com
 ADR;TYPE=WORK:;;112 Grants Ferry Rd.;Brandon;MS;39047;United States
-item1.URL:https://bloomhomesassistedliving.com
-item1.X-ABLabel:Bloom Homes
-item2.URL:https://linktr.ee/bloomhomesassistedliving
-item2.X-ABLabel:Linktree
+item1.URL:https://nickleous.github.io/vCard-Chloe/
+item1.X-ABLabel:vCard
+item2.URL:https://bloomhomesassistedliving.com
+item2.X-ABLabel:Bloom Homes
+item3.URL:https://linktr.ee/bloomhomesassistedliving
+item3.X-ABLabel:Linktree
 X-SOCIALPROFILE;TYPE=facebook:https://facebook.com/bloomhomesassistedliving
 X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/bloomhomesassistedlivi
  ng
