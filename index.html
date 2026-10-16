@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chloe Kilman, MD | Co-Owner &amp; Founder, Bloom Homes</title>
+  <meta name="description" content="Chloe Kilman, MD, geriatric physician, dementia care expert, and co-founder of Bloom Homes Assisted Living &amp; Memory Care in Brandon, Mississippi. Follow the build of The Iris, opening Spring 2027.">
+
+  <link rel="icon" href="./assets/images/favicon.ico" sizes="any">
+  <link rel="icon" href="./assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* small additions for this version */
+    .strengths-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .strength-tag {
+      color: var(--white-2);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      background: var(--border-gradient-onyx);
+      padding: 8px 14px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-1);
+    }
+    .project-img img { object-fit: cover; }
+    .avatar-box img { height: auto; border-radius: inherit; }
+    .service-icon-box ion-icon { font-size: 40px; color: var(--orange-yellow-crayola); display: block; }
+    .brand-logo {
+      background: #f5f3ef;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 30px;
+      max-width: 520px;
+    }
+    .brand-logo img { width: 100%; height: auto; display: block; }
+    .phase-intro { color: var(--light-gray); font-weight: var(--fw-300); line-height: 1.6; margin-bottom: 25px; }
+    .status-badge { display: inline-block; font-size: 11px; font-weight: var(--fw-400); padding: 2px 10px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+    .timeline-list .status-complete { background: hsla(45, 100%, 72%, 0.12); color: var(--orange-yellow-crayola); }
+    .timeline-list .status-next { background: var(--jet); color: var(--light-gray); }
+    .timeline-item.is-next::after { background: var(--jet); box-shadow: 0 0 0 4px var(--jet), 0 0 0 5px var(--light-gray-70); }
+    .timeline-list .status-planned { background: transparent; color: var(--light-gray-70); border: 1px solid var(--jet); }
+    .timeline-item.is-planned::after { background: var(--jet); box-shadow: 0 0 0 4px var(--jet); }
+    .campus-facts { margin-top: 30px; }
+    .icon-houses { width: 1.75em; height: 1.2em; display: block; }
+    .project-img img { aspect-ratio: 16 / 10; height: auto; }
+    .lightbox { position: fixed; inset: 0; z-index: 30; background: hsla(0, 0%, 5%, 0.94); display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .lightbox[hidden] { display: none; }
+    .lightbox figure { max-width: 1100px; width: 100%; text-align: center; }
+    .lightbox img { max-width: 100%; max-height: 80vh; margin: 0 auto; border-radius: 12px; object-fit: contain; }
+    .lightbox figcaption { color: var(--light-gray); font-size: var(--fs-6); margin-top: 12px; }
+    .lightbox-btn { position: absolute; color: var(--white-2); font-size: 28px; background: var(--jet); width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; }
+    .lightbox-btn:hover { color: var(--orange-yellow-crayola); }
+    .lightbox-close { top: 16px; right: 16px; }
+    .lightbox-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+    .lightbox-next { right: 12px; top: 50%; transform: translateY(-50%); }
+    .quick-contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+    .quick-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 8px; border-radius: 14px; background: var(--border-gradient-onyx); box-shadow: var(--shadow-1); color: var(--white-2); font-size: var(--fs-6); }
+    .quick-btn ion-icon { font-size: 22px; color: var(--orange-yellow-crayola); }
+    .quick-btn:hover { color: var(--orange-yellow-crayola); }
+    .form-intro { color: var(--light-gray); font-weight: var(--fw-300); line-height: 1.6; margin-top: -10px; margin-bottom: 20px; }
+    .form-trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .form-status { color: var(--orange-yellow-crayola); font-size: var(--fs-6); margin-top: 15px; min-height: 1em; }
+    .sidebar.active { max-height: 640px; }
+    @media (min-width: 580px) { .sidebar.active { max-height: 760px; } }
+    @media (min-width: 1250px) { .sidebar.active { max-height: max-content; } }
+    .contact-info { min-width: 0; }
+    .info-content .credentials abbr { text-decoration: none; cursor: help; }
+    .info-content .credentials { color: var(--orange-yellow-crayola); font-size: var(--fs-8); font-weight: var(--fw-400); letter-spacing: 0.5px; margin-bottom: 8px; }
+    @media (min-width: 1250px) { .info-content .credentials { text-align: center; } }
+    .contact-info .contact-link { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <!-- #SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.jpg" alt="Chloe Kilman, MD" width="80" height="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Chloe Kilman">Chloe Kilman</h1>
+          <p class="credentials"><abbr title="Doctor of Medicine">MD</abbr>, <abbr title="Fellow of the American Academy of Family Physicians">FAAFP</abbr>, <abbr title="Certified Dementia Practitioner">CDP</abbr>, <abbr title="Certified Montessori Dementia Care Professional">CMDCP</abbr></p>
+          <p class="title">Co-Owner &amp; Founder</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:Chloe@BloomHomesAssistedLiving.com" class="contact-link">Chloe@BloomHomesAssistedLiving.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+16014011546" class="contact-link">(601) 401-1546</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="ribbon-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Service</p>
+              <address>Bloom Homes Assisted Living &amp; Memory Care</address>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>112 Grants Ferry Rd.<br>Brandon, MS 39047</address>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://linktr.ee/bloomhomesassistedliving" class="social-link" target="_blank" rel="noopener" aria-label="Linktree">
+              <ion-icon name="link-outline"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://facebook.com/bloomhomesassistedliving" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://instagram.com/bloomhomesassistedliving" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.linkedin.com/company/bloomhomesassistedliving" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://bloomhomesassistedliving.com" class="social-link" target="_blank" rel="noopener" aria-label="Bloom Homes website">
+              <ion-icon name="globe-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+    <!-- #main-content -->
+    <div class="main-content">
+
+      <!-- #NAVBAR -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><button class="navbar-link  active" data-nav-link>About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Progress</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Gallery</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+        </ul>
+      </nav>
+
+
+      <!-- #ABOUT -->
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            I'm Chloe Kilman, a physician who has built my career around caring for older adults. I am double
+            board certified in Family Medicine and Geriatrics, and I am a Fellow of the American Academy of
+            Family Physicians.
+          </p>
+
+          <p>
+            Today I work as a physician and Assistant Professor of Geriatrics at the University of Mississippi
+            Medical Center. I am a Certified Dementia Practitioner and a Certified Montessori Dementia Care
+            Professional. My work helps me
+            understand what seniors and their families want and need, and I bring that into every care decision.
+          </p>
+
+          <p>
+            Caring for older adults is a privilege. My patients teach me something new every day, and I value
+            the chance to learn from their lives and experiences.
+          </p>
+
+          <p>
+            That is why my husband, Nick Blanchard, and I founded Bloom Homes Assisted Living &amp; Memory Care.
+            I will serve as the Medical Director of Bloom Homes and lead the clinical side of our care.
+            Nick leads the business side. Our first home, The Iris, opens in Spring 2027
+            at 112 Grants Ferry Rd. in Brandon. It is a purpose built memory care home with 16 private bedrooms,
+            each with its own bathroom.
+          </p>
+        </section>
+
+
+        <!-- service -->
+        <section class="service">
+
+          <h3 class="h3 service-title">Bloom Homes Services</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="home-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Assisted Living</h4>
+                <p class="service-item-text">
+                  Help with daily tasks, medication management, and access to physical and occupational therapy in a small, 16 resident home.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Memory Care</h4>
+                <p class="service-item-text">
+                  Memory care and dementia support with personalized care focused on dignity and quality of life.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="medkit-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Care Team</h4>
+                <p class="service-item-text">
+                  24/7 on site care staff, physician oversight, with hospice and end of life support.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="flower-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Daily Life &amp; Amenities</h4>
+                <p class="service-item-text">
+                  Private bedrooms and bathrooms, gardens, a library, a salon, meals from our in house chef, and daily activities like music, gardening, and seated exercise.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!-- testimonials modal (kept hidden; the site script needs it. Add real testimonials later.) -->
+        <div class="modal-container" data-modal-container>
+          <div class="overlay" data-overlay></div>
+          <section class="testimonials-modal">
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/my-avatar.jpg" alt="" width="80" data-modal-img>
+              </figure>
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+            <div class="modal-content">
+              <h4 class="h3 modal-title" data-modal-title></h4>
+              <div data-modal-text></div>
+            </div>
+          </section>
+        </div>
+
+      </article>
+
+
+      <!-- #PROGRESS (uses the template's resume styling) -->
+      <article class="resume" data-page="progress">
+
+        <header>
+          <h2 class="h2 article-title">Build Progress</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper phase-title">
+            <div class="icon-box">
+              <ion-icon name="home-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Phase 1: The Iris</h3>
+          </div>
+
+          <p class="phase-intro">
+            Our first home, The Iris, sits on 4.57 acres at 112 Grants Ferry Rd. in Brandon, Mississippi.
+            It is a purpose built memory care home with 16 private bedrooms, each with its own bathroom.
+            Opening Spring 2027.
+          </p>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Land Purchased <span class="status-badge status-complete">Complete</span></h4>
+              <span>August 2024</span>
+              <p class="timeline-text">Secured 4.57 acres on Grants Ferry Rd.</p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Architectural Review <span class="status-badge status-complete">Complete</span></h4>
+              <span>September 2025</span>
+              <p class="timeline-text">Building plans reviewed and approved.</p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Construction Loan Closed <span class="status-badge status-complete">Complete</span></h4>
+              <span>June 2026</span>
+              <p class="timeline-text">Financing secured for construction.</p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Groundbreaking <span class="status-badge status-complete">Complete</span></h4>
+              <span>August 2026</span>
+              <p class="timeline-text">Site work began.</p>
+            </li>
+
+            <li class="timeline-item is-next">
+              <h4 class="h4 timeline-item-title">Concrete Foundation <span class="status-badge status-next">Up Next</span></h4>
+            </li>
+
+            <li class="timeline-item is-next">
+              <h4 class="h4 timeline-item-title">Framing <span class="status-badge status-next">Up Next</span></h4>
+            </li>
+
+            <li class="timeline-item is-next">
+              <h4 class="h4 timeline-item-title">Paving <span class="status-badge status-next">Up Next</span></h4>
+            </li>
+
+            <li class="timeline-item is-next">
+              <h4 class="h4 timeline-item-title">State Licensing <span class="status-badge status-next">Up Next</span></h4>
+            </li>
+
+            <li class="timeline-item is-next">
+              <h4 class="h4 timeline-item-title">Grand Opening <span class="status-badge status-next">Up Next</span></h4>
+              <span>Spring 2027</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper phase-title">
+            <div class="icon-box">
+              <svg class="icon-houses" viewBox="0 0 36 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 13 L6.5 7.5 L11.5 12.5 M2.5 12 V21 H10.5 V12.5" />
+                <path d="M10.5 10 L18 3 L25.5 10 M12.5 8.5 V21 H23.5 V8.5 M16.5 21 V16 H19.5 V21" />
+                <path d="M24.5 12.5 L29.5 7.5 L35 13 M25.5 12.5 V21 H33.5 V12" />
+              </svg>
+            </div>
+            <h3 class="h3">Phase 2: Homes 2 &amp; 3</h3>
+          </div>
+
+          <p class="phase-intro">
+            Phase 2 adds two more 16 bed homes on the same 4.57 acres. Each home will follow the same proven design
+            and offer the same care and amenities as The Iris, while having its own unique character. True to the
+            Bloom Homes brand, each home will be named after a flower. The flower names reflect our belief that every
+            resident deserves a place to feel at home and bloom.
+          </p>
+
+          <p class="phase-intro">
+            When all three homes are complete, Bloom Homes will serve up to 48 residents.
+          </p>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item is-planned">
+              <h4 class="h4 timeline-item-title">Home 2 <span class="status-badge status-planned">Planned</span></h4>
+              <span>Flower name to come</span>
+            </li>
+
+            <li class="timeline-item is-planned">
+              <h4 class="h4 timeline-item-title">Home 3 <span class="status-badge status-planned">Planned</span></h4>
+              <span>Flower name to come</span>
+            </li>
+
+            <li class="timeline-item is-planned">
+              <h4 class="h4 timeline-item-title">Construction Start <span class="status-badge status-planned">Planned</span></h4>
+              <span>3 to 5 years after The Iris is complete</span>
+            </li>
+
+          </ol>
+
+          <ul class="strengths-list campus-facts">
+            <li class="strength-tag">3 Homes</li>
+            <li class="strength-tag">48 Residents</li>
+            <li class="strength-tag">4.57 Acres</li>
+            <li class="strength-tag">1 Campus</li>
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!-- #GALLERY (uses the template's portfolio styling) -->
+      <article class="portfolio" data-page="gallery">
+
+        <header>
+          <h2 class="h2 article-title">Gallery</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>Renderings</button></li>
+            <li class="filter-item"><button data-filter-btn>Groundbreaking</button></li>
+            <li class="filter-item"><button data-filter-btn>Land</button></li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Renderings</button></li>
+              <li class="select-item"><button data-select-item>Groundbreaking</button></li>
+              <li class="select-item"><button data-select-item>Land</button></li>
+            </ul>
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="renderings">
+              <a href="./assets/images/gallery/rendering-1.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/rendering-1-thumb.jpg" alt="The Iris front view with the Bloom Homes monument sign" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">The Iris</h3>
+                <p class="project-category">Renderings</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="renderings">
+              <a href="./assets/images/gallery/rendering-2.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/rendering-2-thumb.jpg" alt="The Iris front entrance" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">The Iris Entrance</h3>
+                <p class="project-category">Renderings</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="renderings">
+              <a href="./assets/images/gallery/signage-rendering.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/signage-rendering-thumb.jpg" alt="Bloom Homes Assisted Living and Memory Care monument sign" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Monument Sign</h3>
+                <p class="project-category">Renderings</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="groundbreaking">
+              <a href="./assets/images/gallery/groundbreaking-1.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/groundbreaking-1-thumb.jpg" alt="Bloom Homes Coming Soon sign on Grants Ferry Rd." width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Coming Soon</h3>
+                <p class="project-category">Groundbreaking</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="groundbreaking">
+              <a href="./assets/images/gallery/groundbreaking-2.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/groundbreaking-2-thumb.jpg" alt="Family and team at the Bloom Homes Coming Soon sign" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Celebrating the Start</h3>
+                <p class="project-category">Groundbreaking</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="groundbreaking">
+              <a href="./assets/images/gallery/groundbreaking-3.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/groundbreaking-3-thumb.jpg" alt="Guests breaking ground with shovels" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Groundbreaking Ceremony</h3>
+                <p class="project-category">Groundbreaking</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="groundbreaking">
+              <a href="./assets/images/gallery/groundbreaking-4.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/groundbreaking-4-thumb.jpg" alt="Team breaking ground on The Iris site" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Breaking Ground</h3>
+                <p class="project-category">Groundbreaking</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-1.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-1-thumb.jpg" alt="Site work on the 4.57 acre property, view 1" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 1</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-2.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-2-thumb.jpg" alt="Site work on the 4.57 acre property, view 2" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 2</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-3.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-3-thumb.jpg" alt="Site work on the 4.57 acre property, view 3" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 3</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-4.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-4-thumb.jpg" alt="Site work on the 4.57 acre property, view 4" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 4</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-5.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-5-thumb.jpg" alt="Site work on the 4.57 acre property, view 5" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 5</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-6.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-6-thumb.jpg" alt="Site work on the 4.57 acre property, view 6" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 6</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-7.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-7-thumb.jpg" alt="Site work on the 4.57 acre property, view 7" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 7</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-8.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-8-thumb.jpg" alt="Site work on the 4.57 acre property, view 8" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 8</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-9.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-9-thumb.jpg" alt="Site work on the 4.57 acre property, view 9" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 9</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-10.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-10-thumb.jpg" alt="Site work on the 4.57 acre property, view 10" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 10</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-11.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-11-thumb.jpg" alt="Site work on the 4.57 acre property, view 11" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 11</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="land">
+              <a href="./assets/images/gallery/land-12.jpg" data-lightbox>
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/gallery/land-12-thumb.jpg" alt="Site work on the 4.57 acre property, view 12" width="640" height="400" loading="lazy">
+                </figure>
+                <h3 class="project-title">Site Progress 12</h3>
+                <p class="project-category">Land</p>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!-- full size photo viewer -->
+        <div class="lightbox" data-lightbox-box hidden>
+          <button class="lightbox-btn lightbox-close" data-lightbox-close aria-label="Close"><ion-icon name="close-outline"></ion-icon></button>
+          <button class="lightbox-btn lightbox-prev" data-lightbox-prev aria-label="Previous photo"><ion-icon name="chevron-back-outline"></ion-icon></button>
+          <figure>
+            <img alt="" data-lightbox-img>
+            <figcaption data-lightbox-caption></figcaption>
+          </figure>
+          <button class="lightbox-btn lightbox-next" data-lightbox-next aria-label="Next photo"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+        </div>
+
+      </article>
+
+
+      <!-- #CONTACT -->
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <ul class="quick-contact">
+          <li>
+            <a href="tel:+16014011546" class="quick-btn">
+              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+              <span>Call</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:Nick@BloomHomesAssistedLiving.com" class="quick-btn">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              <span>Email</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=112+Grants+Ferry+Rd,+Brandon,+MS+39047" class="quick-btn" target="_blank" rel="noopener">
+              <ion-icon name="navigate-outline" aria-hidden="true"></ion-icon>
+              <span>Directions</span>
+            </a>
+          </li>
+        </ul>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe src="https://maps.google.com/maps?q=112%20Grants%20Ferry%20Rd%2C%20Brandon%2C%20MS%2039047&z=15&output=embed"
+              width="400" height="300" loading="lazy" title="Bloom Homes, 112 Grants Ferry Rd, Brandon, MS 39047"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <p class="form-intro">
+            Interested in The Iris or have questions about memory care? Send a message and we will get back to you.
+          </p>
+
+          <!-- Sends to the "Bloom Homes Website Messages" Google Sheet. Set the web app URL in SHEET_URL near the bottom of this file. -->
+          <form action="mailto:Nick@BloomHomesAssistedLiving.com" method="post" enctype="text/plain" class="form" data-form>
+
+            <input type="text" name="website" tabindex="-1" autocomplete="off" class="form-trap" aria-hidden="true">
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+            <p class="form-status" data-form-status role="status"></p>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <script src="./assets/js/script.js"></script>
+  <script>
+    // photo viewer for the Gallery tab
+    (function () {
+      const box = document.querySelector("[data-lightbox-box]");
+      if (!box) return;
+      const img = box.querySelector("[data-lightbox-img]");
+      const cap = box.querySelector("[data-lightbox-caption]");
+      let list = [], idx = 0;
+      const show = function (i) {
+        idx = (i + list.length) % list.length;
+        const a = list[idx];
+        img.src = a.getAttribute("href");
+        img.alt = a.querySelector("img").alt;
+        cap.textContent = a.querySelector(".project-title").textContent;
+      };
+      document.querySelectorAll("[data-lightbox]").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          list = Array.from(document.querySelectorAll(".project-item.active [data-lightbox]"));
+          show(list.indexOf(a));
+          box.hidden = false;
+          document.body.style.overflow = "hidden";
+        });
+      });
+      const close = function () { box.hidden = true; img.removeAttribute("src"); document.body.style.overflow = ""; };
+      box.querySelector("[data-lightbox-close]").addEventListener("click", close);
+      box.querySelector("[data-lightbox-prev]").addEventListener("click", function () { show(idx - 1); });
+      box.querySelector("[data-lightbox-next]").addEventListener("click", function () { show(idx + 1); });
+      box.addEventListener("click", function (e) { if (e.target === box) close(); });
+      document.addEventListener("keydown", function (e) {
+        if (box.hidden) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowLeft") show(idx - 1);
+        if (e.key === "ArrowRight") show(idx + 1);
+      });
+    })();
+  </script>
+  <script>
+    // contact form: sends messages to the Google Sheet once SHEET_URL is set
+    (function () {
+      const SHEET_URL = "https://script.google.com/macros/s/AKfycbzYX46Vk5P4ixgIbpMn9DHPUpG1_FQZD_fXRxHAGmrxVdM9bl9fIeHa90ZZVGViswQ3/exec"; // paste the Apps Script web app URL (ends in /exec) here
+      const form = document.querySelector("[data-form]");
+      const status = document.querySelector("[data-form-status]");
+      if (!form || !SHEET_URL) return; // without a URL the form falls back to the email app
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const btn = form.querySelector("[data-form-btn]");
+        btn.setAttribute("disabled", "");
+        status.textContent = "Sending...";
+        fetch(SHEET_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams(new FormData(form)) })
+          .then(function () {
+            form.reset();
+            status.textContent = "Thank you. Your message was sent. We will get back to you soon.";
+          })
+          .catch(function () {
+            btn.removeAttribute("disabled");
+            status.textContent = "Sorry, the message did not send. Please call (601) 401-1546 or email Nick@BloomHomesAssistedLiving.com.";
+          });
+      });
+    })();
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
